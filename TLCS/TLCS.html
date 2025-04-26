@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TutorLink</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .topbar {
+            background-color: #ffffff;
+            color: #007BFF;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bolder;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .back-button {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            background-color: #007BFF;
+            color: #ffffFF;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #d1dfe3;
+        }
+
+        .navbar-container {
+            display: flex;
+            flex-direction: row;
+            margin-top: 60px; /* Adjust this value according to the height of the topbar */
+            height: calc(100vh - 60px); /* Adjust this value according to the height of the topbar */
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            padding-top: 20px;
+            padding-bottom: 0px;
+            position: fixed;
+            top: 60px; /* Adjust this value according to the height of the topbar */
+            bottom: 0;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align items to the top */
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            /*font-weight: 500;*/
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav {
+            width: 100%;
+        }
+
+        .navbar-nav .nav-link {
+            color: #007BFF;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .main-content {
+            background-color: #E1EDF2;
+            color: white;
+            flex: 1;
+            padding: 0px;
+            margin-left: 200px; /* Adjust this value according to the width of the navbar */
+            height: calc(100vh - 60px); /* Adjust this value according to the height of the topbar */
+            overflow-y: auto;
+            transition: margin-left 0.3s ease;
+        }
+
+        .main-content img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            margin-bottom: 0px;
+        }
+        .link-container {
+            display: flex;
+            flex-direction: column; 
+            align-items: flex-end; 
+            position: relative; 
+        }
+
+        .link {
+             color: black;
+             font-weight: bold;
+             background-color: rgba(255, 255, 255, 0); /* Background to make text readable on the image */
+             font-family: 'Roboto', sans-serif;
+             padding: 10px;
+             text-decoration: none;
+        }
+
+        .link-google {
+            position: absolute; 
+            top: 200px;
+            right: 450px; 
+            text-align: center; 
+        }
+
+        .link-apple {
+            position: absolute; 
+            top: 400px; 
+            right: 450px;
+            text-align: center; 
+        }
+        @media (min-width: 0) { /* Targets all screen sizes */
+        .navbar {
+              width: 200px; /* Adjust this value to your desired width */
+             }
+        }
+
+         @media (max-width: 768px) {
+        .navbar {
+              width: 100px; /* Adjust for smaller screens */
+              font-size: 1rem;
+            }
+        .main-content {
+             margin-left: 100px; /* Adjust for smaller screens */
+            }
+        .link-container {
+            padding-right: 5%; /* Less padding for smaller screens */
+            }
+        .link-google, .link-apple {
+        font-size: 0.9rem; /* Smaller text size for medium screens */
+            }
+        }       
+
+        @media (max-width: 576px) {
+        .navbar {
+            width: 100px; /* Adjust for very small screens */
+            font-size: 0.8rem;
+                }
+        .main-content {
+            margin-left: 100px; /* Adjust for very small screens */
+                }
+        .link-container {
+            padding-right: 2%; /* Minimal padding for very small screens */
+            }   
+        .link-google, .link-apple {
+            font-size: 0.8rem; /* Even smaller text size for small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <h1><b>TutorLink App and Responsive Website</b></h1>
+        <a href="../merportfolio.html" class="back-button">Back</a>
+    </div>
+    <div class="navbar-container">
+        <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section1">Introduction</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section2">Problem Statement</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section3">Problem and Goal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section4">My Role</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section5">User Research Summary</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section6">Personas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section7">User Journey Map</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section8">Paper Wireframes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section9">Digital Wireframes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section10">Low Fidelity Prototype</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section11">Usability Study</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section12">Mockups</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section13">High Fidelity Prototype</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section14">Accessibility Considerations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section15">Takeaways</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section16">Next steps</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section17">Let's Connect</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.figma.com/proto/GLIlWeLSg8QceWozSIBzD1/Tutor-app?node-id=152-2337&node-type=CANVAS&t=ShSsPM8lJrXPziI2-0&scaling=min-zoom&content-scaling=fixed&page-id=152%3A1931&starting-point-node-id=152%3A2337"target="_blank">Link to App Hi-Fi Prototype</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.figma.com/proto/GLIlWeLSg8QceWozSIBzD1/Tutor-app?node-id=211-92945&node-type=CANVAS&t=ShSsPM8lJrXPziI2-0&scaling=min-zoom&content-scaling=fixed&page-id=211%3A92925"target="_blank">Link to Responsive Website Prototype</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="main-content">
+            <section id="section1">
+                <img src="Hero.svg" alt="Hero Image">
+            </section>
+            <section id="section2">
+                <img src="Problem Statement.svg" alt="Problem Statement Image">
+            </section>
+            <section id="section3">
+                <img src="Problem and Goal.svg" alt="Problem and Goal Image">
+            </section>
+            <section id="section4">
+                <img src="My Role.svg" alt="My Role Image">
+            </section>
+            <section id="section5">
+                <img src="User Research Summary.svg" alt="User Research Summary Image">
+            </section>
+            <section id="section6">
+                <img src="Persona.svg" alt="Persona Image">
+            </section>
+            <section id="section7">
+                <img src="User Journey Map.svg" alt="User Journey Map Image">
+            </section>
+            <section id="section8">
+                <img src="Paper Wireframes.svg" alt="Paper Wireframes Image">
+            </section>
+            <section id="section9">
+                <img src="Digital Wire Frames.svg" alt="Digital Wireframes Image">
+            </section>
+            <section id="section10">
+                <img src="Low Fidelity Prototype.svg" alt="Low Fidelity Prototype Image">
+            </section>
+            <section id="section11">
+                <img src="Usability Study.svg" alt="Usability Study Image">
+            </section>
+            <section id="section12">
+                <img src="Mockups.svg" alt="Mockups Image">
+            </section>
+            <section id="section13" class="link-container">
+                <img src="High Fidelity Prototype.svg" alt="High Fidelity Prototype Image">
+            </section>
+            <section id="section14">
+                <img src="Accessibilty Considerations.svg" alt="Accessibility Considerations Image">
+            </section>
+            <section id="section15">
+                <img src="Takeaways.svg" alt="Takeaways Image">
+            </section>
+            <section id="section16">
+                <img src="Next steps.svg" alt="Next steps Image">
+            </section>
+            <section id="section17">
+                <img src="Lets Connect.svg" alt="Let's Connect Image">
+            </section>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

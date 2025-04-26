@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Booking System</title>
+    <style>
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        background-color: black;
+        color: #bcbcbc;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 1200px; /* Increased the max-width to utilize more space */
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+        font-size: 24px; /* Adjust font size as needed */
+      }
+      .h3,
+      .project-summary {
+        text-align: center;
+        font-size: 22px; /* Uniform font size */
+        margin: 20px 0; /* Add margin for spacing */
+        line-height: 1.75; /* Adjust line-height for better readability */
+      }
+
+      .project-details {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0; /* Add margin for spacing */
+      }
+
+      .project-deliverables,
+      .project-scope {
+        width: 596px; /* Ensure the elements take up more width */
+        padding: 20px;
+        border: 1px solid #b22222;
+        box-sizing: border-box; /* Include padding and border in the element's width */
+        font-size: 18px; /* Uniform font size */
+        line-height: 1.5;
+      }
+
+      .project-deliverables h3 {
+        margin-bottom: 40px; /* Adjust this value as needed */
+      }
+
+      .project-deliverables ul li,
+      .project-scope ul li,
+      .project-role li {
+        margin-bottom: 15px; /* Adjust the space as needed */
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 18px; /* Base font size for h3 */
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .project-photos-heading {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .project-photos {
+        border: 1px solid #b22222;
+        padding: 10px;
+        overflow: hidden; /* Prevent content from overflowing the border */
+      }
+
+      .project-photo-container {
+        display: flex;
+        gap: 10px;
+        justify-content: center; /* Center images horizontally */
+        flex-wrap: wrap; /* Allow images to wrap if there's not enough space */
+        max-width: 100%; /* Ensure the container doesn’t overflow */
+      }
+
+      .project-photo {
+        width: calc(
+          (100% - 20px) / 3
+        ); /* Adjust width to fit 4 images in one row */
+        max-height: auto;
+        object-fit: cover;
+      }
+
+      .project-role {
+        margin: 20px 0; /* Add margin for spacing */
+        padding: 20px;
+        border: 1px solid #b22222;
+        font-size: 18px; /* Uniform font size */
+      }
+
+      .project-role h3 h4 {
+        margin-bottom: 10px;
+        font-size: 18px; /* Base font size for h3 */
+      }
+
+      /* Breakpoints for Responsive Design */
+      @media screen and (max-width: 768px) {
+        body,
+        h1,
+        h2 {
+          font-size: 22px;
+        }
+        .h3,
+        .project-summary {
+          font-size: 20px;
+        }
+        .project-deliverables,
+        .project-scope,
+        .project-role {
+          padding: 16px;
+          font-size: 18px; /* Uniform font size */
+          line-height: 1.3;
+        }
+        .project-deliverables h3 {
+          margin-bottom: 28px; /* Adjust this value as needed */
+        }
+
+        .project-details {
+          flex-direction: column; /* Stack sections vertically */
+        }
+
+        .project-deliverables,
+        .project-scope {
+          width: 100%; /* Full width on smaller screens */
+          margin-bottom: 20px; /* Add margin for spacing */
+        }
+
+        .project-photo-container {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center; /* Ensure items are centered */
+        }
+
+        .project-photo {
+          width: calc(50% - 10px); /* Two photos per row with a 10px gap */
+          max-height: 200px;
+          margin-bottom: 10px; /* Add bottom margin to create space between rows */
+          object-fit: cover;
+        }
+      }
+
+      @media screen and (max-width: 430px) {
+        body,
+        h1,
+        h2 {
+          font-size: 18px;
+        }
+        .h3,
+        .project-summary {
+          font-size: 16px;
+        }
+        .project-deliverables,
+        .project-scope,
+        .project-role {
+          padding: 12px;
+          font-size: 14px; /* Uniform font size */
+          line-height: 0.9;
+        }
+        .project-deliverables h3 {
+          margin-bottom: 12px; /* Adjust this value as needed */
+        }
+
+        .project-photo-container {
+          display: flex;
+          flex-direction: column; /* Stack photos vertically */
+          align-items: center; /* Center photos horizontally if needed */
+        }
+
+        .project-photo {
+          width: 100%; /* Ensure each photo takes full width */
+          max-height: 200px;
+          margin-bottom: 10px; /* Add space between photos */
+          object-fit: cover;
+        }
+      }
+
+      @media screen and (max-width: 320px) {
+        body,
+        h1,
+        h2 {
+          font-size: 16px;
+        }
+        .h3,
+        .project-summary {
+          font-size: 14px;
+        }
+        .project-deliverables,
+        .project-scope,
+        .project-role {
+          padding: 10px;
+          font-size: 12px; /* Uniform font size */
+          line-height: 0.7;
+        }
+        .project-deliverables h3 {
+          margin-bottom: 12px; /* Adjust this value as needed */
+        }
+        .project-photo-container {
+          display: flex;
+          flex-direction: column; /* Stack photos vertically */
+          align-items: center; /* Center photos horizontally if needed */
+        }
+
+        .project-photo {
+          width: 100%; /* Ensure each photo takes full width */
+          max-height: 150px;
+          margin-bottom: 10px; /* Add space between photos */
+          object-fit: cover;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Locally Deployed Booking System for Grand Palmera Hotel</h1>
+      <h2>Aug. 2024-Oct. 2024</h2>
+
+      <!-- Project Summary Section -->
+      <div class="project-summary">
+        <p>
+          The staff at Grand Palmera Hotel require an efficient booking system
+          to streamline their workflow and provide a clear, real-time overview
+          of available slots for seamless handling of booking inquiries.
+        </p>
+      </div>
+
+      <div class="project-details">
+        <div class="project-deliverables">
+          <h3>Project Deliverables</h3>
+          <ul>
+            <li>
+              A locally Deployed booking system for the Grand Palmera Hotel.
+            </li>
+          </ul>
+        </div>
+
+        <div class="project-scope">
+          <h3>Project Scope</h3>
+          <ul>
+            <li>
+              Create a booking system the is user-friendly and has the following
+              features.
+            </li>
+            <li>
+              Double Booking avoidance - if a booking was made on a location,
+              date and time on a slot that has already been occupied the new
+              booking will not be submitted. An alert will also pop-up to alert
+              the user that the slot is already occupied.
+            </li>
+            <li>
+              Ability to Edit and Delete - if the user has admin privileges, the
+              user can edit or delete a booking.
+            </li>
+            <li>
+              Past Date Selection Alarm - If the user has chosen a past date, an
+              alert will be pop up to alert the user that the date chosen has
+              already passed.
+            </li>
+            <li>
+              Sorting - the user can sort the bookings table by date, location
+              and client.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Project Photos Section -->
+      <div class="project-photos">
+        <div class="project-photos-heading">
+          <h3>Project Photos</h3>
+        </div>
+        <div class="project-photo-container">
+          <img
+            src="Palmera1.png"
+            alt="Camera Installation 1"
+            class="project-photo"
+          />
+          <img
+            src="Palmera2.png"
+            alt="Camera Installation 2"
+            class="project-photo"
+          />
+          <img
+            src="Palmera3.png"
+            alt="Camera Installation 3"
+            class="project-photo"
+          />
+          <img
+            src="Palmera4.png"
+            alt="Camera Installation 4"
+            class="project-photo"
+          />
+          <img
+            src="Palmera5.png"
+            alt="Camera Installation 3"
+            class="project-photo"
+          />
+          <img
+            src="Palmera6.png"
+            alt="Camera Installation 4"
+            class="project-photo"
+          />
+        </div>
+      </div>
+
+      <div class="project-role">
+        <h3>Project Role</h3>
+        <ul>
+          <h4>Project Planning</h4>
+          <li>
+            Conducted requirements analysis by collaborating with hotel
+            management to understand business needs. Created a project roadmap,
+            setting clear milestones and timelines.
+          </li>
+        </ul>
+        <ul>
+          <h4>System Design</h4>
+          <li>
+            Designed an intuitive user interface (UI) and user experience (UX)
+            for hotel staff.
+          </li>
+        </ul>
+        <ul>
+          <h4>Development</h4>
+          <li>
+            Coded the entire system, including front-end and back-end
+            components, using [technologies used, e.g., HTML, CSS, JavaScript,
+            PHP, MySQL].
+          </li>
+        </ul>
+        <ul>
+          <h4>Testing and Deployment</h4>
+          <li>
+            Conducted rigorous testing to ensure system reliability and
+            security. Deployed the system locally on hotel infrastructure and
+            ensured a smooth transition for staff.
+          </li>
+        </ul>
+        <ul>
+          <h4>Training and Handover:</h4>
+          <li>
+            Created documentation and provided training for hotel staff to
+            operate and maintain the system.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

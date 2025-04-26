@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /test/
+Allow: /
+
+# Sitemap URL
+Sitemap: https://balot1785.site/sitemap.xml

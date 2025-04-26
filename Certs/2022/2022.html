@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2016 Certificates</title>
+    <style>
+      /* Base styles for larger screens */
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        background-color: black;
+        color: #bcbcbc;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 100%;
+        margin: 10px auto;
+        padding: 20px;
+        align-items: center;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 24px; /* Adjust font size as needed */
+      }
+
+      .project-photos {
+        max-width: 100%;
+        border: 1px solid #b22222;
+        padding: 10px;
+        box-sizing: border-box; /* Include padding and border in the width */
+        align-items: center;
+        overflow-x: auto; /* Allow horizontal scrolling if needed */
+      }
+
+      .project-photo-row {
+        display: flex; /* Ensure flex layout for centering */
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+        padding: 10px; /* Add padding around the images */
+      }
+
+      /* Update for larger screens (min-width: 1024px) */
+      @media screen and (min-width: 1024px) {
+        .project-photo-row {
+          flex-direction: column; /* Stack images vertically if needed */
+        }
+
+        .project-photo-row img {
+          width: auto; /* Maintain image aspect ratio */
+          max-width: 100%; /* Ensure image fits within container width */
+          height: auto; /* Maintain aspect ratio */
+        }
+      }
+
+      /* Responsive styles for screens up to 1024px */
+      @media screen and (max-width: 1024px) {
+        .project-photo-row {
+          flex-direction: column; /* Ensure images stack vertically */
+        }
+
+        .project-photo-row img {
+          width: auto; /* Maintain aspect ratio */
+          max-width: 90%; /* Adjust image size to fit well */
+          height: auto; /* Maintain aspect ratio */
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .project-photo-row img {
+          max-width: 80%; /* Further reduce size if needed */
+        }
+      }
+
+      @media screen and (max-width: 430px) {
+        .project-photo-row img {
+          max-width: 70%; /* Further adjust for smaller screens */
+        }
+      }
+
+      @media screen and (max-width: 320px) {
+        .project-photo-row img {
+          max-width: 60%; /* Further adjust for very small screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>2022 Certificates</h1>
+    </div>
+
+    <div class="project-photos">
+      <div class="project-photo-row">
+        <img
+          src="Hikvision HCSA-VMS.jpg"
+          alt="Project Photo 1"
+          class="img-fluid"
+          draggable="false"
+        />
+      </div>
+    </div>
+  </body>
+</html>

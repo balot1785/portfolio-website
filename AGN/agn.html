@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AGN Website</title>
+    <style>
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        background-color: black;
+        color: #bcbcbc;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 1200px; /* Increased the max-width to utilize more space */
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+        font-size: 24px; /* Adjust font size as needed */
+      }
+      .h3,
+      .project-summary {
+        text-align: center;
+        font-size: 22px; /* Uniform font size */
+        margin: 20px 0; /* Add margin for spacing */
+        line-height: 1.75; /* Adjust line-height for better readability */
+      }
+
+      .project-details {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0; /* Add margin for spacing */
+      }
+
+      .project-deliverables,
+      .project-scope {
+        width: 596px; /* Ensure the elements take up more width */
+        padding: 20px;
+        border: 1px solid #b22222;
+        box-sizing: border-box; /* Include padding and border in the element's width */
+        font-size: 18px; /* Uniform font size */
+        line-height: 1.5;
+      }
+
+      .project-deliverables h3 {
+        margin-bottom: 40px; /* Adjust this value as needed */
+      }
+
+      .project-deliverables ul li,
+      .project-scope ul li,
+      .project-role li {
+        margin-bottom: 15px; /* Adjust the space as needed */
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 18px; /* Base font size for h3 */
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .project-photos-heading {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .project-photos {
+        border: 1px solid #b22222;
+        padding: 10px;
+        overflow: hidden; /* Prevent content from overflowing the border */
+      }
+
+      .project-photo-container {
+        display: flex;
+        gap: 10px;
+        justify-content: center; /* Center images horizontally */
+        flex-wrap: wrap; /* Allow images to wrap if there's not enough space */
+        max-width: 100%; /* Ensure the container doesn’t overflow */
+      }
+
+      .project-photo {
+        width: calc(
+          (100% - 20px) / 3
+        ); /* Adjust width to fit 4 images in one row */
+        max-height: auto;
+        object-fit: cover;
+      }
+
+      .project-role {
+        margin: 20px 0; /* Add margin for spacing */
+        padding: 20px;
+        border: 1px solid #b22222;
+        font-size: 18px; /* Uniform font size */
+      }
+
+      .project-role h3 h4 {
+        margin-bottom: 10px;
+        font-size: 18px; /* Base font size for h3 */
+      }
+
+      /* Breakpoints for Responsive Design */
+      @media screen and (max-width: 768px) {
+        body,
+        h1,
+        h2 {
+          font-size: 22px;
+        }
+        .h3,
+        .project-summary {
+          font-size: 20px;
+        }
+        .project-deliverables,
+        .project-scope,
+        .project-role {
+          padding: 16px;
+          font-size: 18px; /* Uniform font size */
+          line-height: 1.3;
+        }
+        .project-deliverables h3 {
+          margin-bottom: 28px; /* Adjust this value as needed */
+        }
+
+        .project-details {
+          flex-direction: column; /* Stack sections vertically */
+        }
+
+        .project-deliverables,
+        .project-scope {
+          width: 100%; /* Full width on smaller screens */
+          margin-bottom: 20px; /* Add margin for spacing */
+        }
+
+        .project-photo-container {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center; /* Ensure items are centered */
+        }
+
+        .project-photo {
+          width: calc(50% - 10px); /* Two photos per row with a 10px gap */
+          max-height: 200px;
+          margin-bottom: 10px; /* Add bottom margin to create space between rows */
+          object-fit: cover;
+        }
+      }
+
+      @media screen and (max-width: 430px) {
+        body,
+        h1,
+        h2 {
+          font-size: 18px;
+        }
+        .h3,
+        .project-summary {
+          font-size: 16px;
+        }
+        .project-deliverables,
+        .project-scope,
+        .project-role {
+          padding: 12px;
+          font-size: 14px; /* Uniform font size */
+          line-height: 0.9;
+        }
+        .project-deliverables h3 {
+          margin-bottom: 12px; /* Adjust this value as needed */
+        }
+
+        .project-photo-container {
+          display: flex;
+          flex-direction: column; /* Stack photos vertically */
+          align-items: center; /* Center photos horizontally if needed */
+        }
+
+        .project-photo {
+          width: 100%; /* Ensure each photo takes full width */
+          max-height: 200px;
+          margin-bottom: 10px; /* Add space between photos */
+          object-fit: cover;
+        }
+      }
+
+      @media screen and (max-width: 320px) {
+        body,
+        h1,
+        h2 {
+          font-size: 16px;
+        }
+        .h3,
+        .project-summary {
+          font-size: 14px;
+        }
+        .project-deliverables,
+        .project-scope,
+        .project-role {
+          padding: 10px;
+          font-size: 12px; /* Uniform font size */
+          line-height: 0.7;
+        }
+        .project-deliverables h3 {
+          margin-bottom: 12px; /* Adjust this value as needed */
+        }
+        .project-photo-container {
+          display: flex;
+          flex-direction: column; /* Stack photos vertically */
+          align-items: center; /* Center photos horizontally if needed */
+        }
+
+        .project-photo {
+          width: 100%; /* Ensure each photo takes full width */
+          max-height: 150px;
+          margin-bottom: 10px; /* Add space between photos */
+          object-fit: cover;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Website for AGN Realty Lessor</h1>
+      <h2>Nov. 2024-Dec. 2024</h2>
+
+      <!-- Project Summary Section -->
+      <div class="project-summary">
+        <p>
+          AGN Realty, a property lessor, requires a website to establish its
+          online presence and effectively showcase its portfolio of properties
+          available for rent or lease. The website will also serve as a
+          convenient platform to provide clients with essential information,
+          including detailed property listings and up-to-date contact details.
+        </p>
+      </div>
+
+      <div class="project-details">
+        <div class="project-deliverables">
+          <h3>Project Deliverables</h3>
+          <ul>
+            <li>A website for AGN Realty Lessor.</li>
+          </ul>
+           <li>A website for AGN Realty Lessor.</li>
+      <li>
+        Visit the website: 
+        <a href="https://agnrealtylessor.site" target="_blank">agnrealtylessor.site</a>
+      </li>
+    </ul>
+        </div>
+
+        <div class="project-scope">
+          <h3>Project Scope</h3>
+          <ul>
+            <li>
+              Create a visually appealing, user-friendly, and responsive website
+              design that highlights AGN Realty's brand identity.
+            </li>
+            <li>
+              Develop a functional website that includes property listing pages,
+              ensuring seamless navigation and optimal performance across all
+              devices.
+            </li>
+            <li>
+              Design and implement an interactive portfolio section to showcase
+              properties available for rent or lease.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Project Photos Section -->
+      <div class="project-photos">
+        <div class="project-photos-heading">
+          <h3>Project Photos</h3>
+        </div>
+        <div class="project-photo-container">
+          <img
+            src="AGN1.webp"
+            alt="Camera Installation 1"
+            class="project-photo"
+          />
+          <img
+            src="AGN2.webp"
+            alt="Camera Installation 2"
+            class="project-photo"
+          />
+          <img
+            src="AGN3.webp"
+            alt="Camera Installation 3"
+            class="project-photo"
+          />
+        </div>
+      </div>
+
+      <div class="project-role">
+        <h3>Project Role</h3>
+        <ul>
+          <h4>Designer and Developer</h4>
+          <li>
+            Designed and developed a responsive website for AGN Realty Lessor
+            using WordPress and Elementor, ensuring a user- friendly and
+            visually appealing layout.
+          </li>
+        </ul>
+        <ul>
+          <h4>SEO</h4>
+          <li>
+            Created and optimized all website content using Yoast SEO to improve
+            search engine rankings and drive organic traffic. - Managed web
+            hosting setup and configuration, ensuring seamless deployment and
+            reliable performance.
+          </li>
+        </ul>
+        <ul>
+          <h4>Web Hosting</h4>
+          <li>
+            Managed web hosting setup and configuration, ensuring seamless
+            deployment and reliable performance.
+          </li>
+        </ul>
+        <ul>
+          <h4>Overall Project Management</h4>
+          <li>
+            Delivered a comprehensive solution that combined technical
+            proficiency, creative content development, and strategic SEO
+            implementation to meet client objectives.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

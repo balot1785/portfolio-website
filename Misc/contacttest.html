@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MRegalado Portfolio</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Helvetica, Arial, sans-serif;
+        background-color: #000000; /* Set background color */
+        color: #383838; /* Set text color */
+      }
+
+      /* General Styles */
+      .top-bar {
+        background-color: #383838;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        flex-wrap: nowrap;
+      }
+      .bottom-bar {
+        background-color: #000000;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+      }
+
+      .social-icons,
+      .contact-info {
+        display: flex;
+        align-items: center;
+      }
+
+      .social-icons a,
+      .contact-info a {
+        color: white;
+        text-decoration: none;
+      }
+      .social-icons a {
+        margin-right: 15px; /* Add 10px margin to the right of each anchor tag */
+      }
+
+      .social-icons a:last-child {
+        /* Remove margin from the last icon */
+        margin-right: 0;
+      }
+
+      .contact-info {
+        font-size: 16px;
+        margin-left: 20px;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #000000;
+        border-top: 1px solid #b22222;
+        box-shadow: 0 1px 0px #b22222;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      }
+
+      .logo {
+        margin-right: 20px;
+        flex: 0 0 auto;
+      }
+
+      .logo img {
+        height: 60px;
+        width: auto;
+        max-width: 100%;
+      }
+
+      .main-nav {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1;
+        justify-content: flex-start;
+      }
+
+      .main-nav a {
+        color: #bcbcbc;
+        text-decoration: none;
+        margin: 0 15px;
+      }
+
+      .main-nav a.contact-button {
+        background-color: #3f3d82;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+
+      .section {
+        padding: 100px 20px;
+        text-align: center;
+        border-bottom: 1px solid #b22222;
+      }
+
+      .section h2 {
+        font-size: 36px;
+        margin: 0;
+        color: #bcbcbc; /* Section title color */
+      }
+
+      .section p {
+        font-size: 18px;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 20px auto;
+        color: #bcbcbc;
+      }
+
+      .portfolio {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 50px 20px;
+      }
+
+      .portfolio-card {
+        background-color: #383838;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 300px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+        text-decoration: none; /* Remove underline */
+        color: #bcbcbc;
+      }
+      .portfolio-card img {
+        width: 100%;
+        height: auto;
+      }
+
+      .portfolio-card:hover {
+        transform: scale(1.05);
+      }
+
+      .portfolio-card .caption {
+        padding: 10px;
+        text-align: center;
+        font-size: 16px;
+      }
+      .links a {
+        display: inline-block;
+        border-radius: 5px;
+        background-color: #bcbcbc;
+        color: black;
+        text-decoration: none;
+        padding: 10px 20px;
+      }
+      .container {
+        display: flex; /* Flexbox for side-by-side layout */
+        align-items: center; /* Align content vertically */
+      }
+      .custom-button {
+        background-color: #bcbcbc;
+        color: #b22222;
+        border-radius: 5px;
+        padding: 10px 20px; /* Optional padding for button */
+      }
+
+      .col-md-6 {
+        width: 50%; /* Set width to 50% for two columns */
+      }
+
+      .img-fluid {
+        width: 100%; /* Image takes full width of its column */
+        background-color: #000000;
+      }
+
+      /* Home Section Styles */
+      #home {
+        padding: 100px 20px;
+      }
+
+      #home h1,
+      #home h2,
+      #home p {
+        margin: 0; /* Remove default margin for cleaner layout */
+        color: #bcbcbc;
+      }
+
+      #home .col-md-6:first-child {
+        /* Style left column (text) */
+        padding-right: 20px;
+        padding-left: 100px;
+      }
+
+      #home .col-md-6:last-child {
+        /* Style right column (image) */
+        padding-left: 10px;
+        background-color: #000000;
+      }
+      #contact1 .contact1-info {
+        list-style-type: none;
+        padding: 0;
+        text-align: left; /* Align the contact info to the right */
+        margin-left: 100px;
+        margin-right: 50px; /* Adjust the right margin as needed */
+      }
+
+      #contact1 .contact1-info li {
+        margin-top: 15px;
+        margin-bottom: 10px;
+      }
+
+      #contact1 .contact1-info li img {
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+
+      #contact1 .contact1-info li a {
+        color: #bcbcbc; /* Set text color */
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      #contact1 .contact1-info li a:hover {
+        text-decoration: underline;
+      }
+      .contact2-container {
+        display: flex;
+        margin-top: 50px;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .contact-form {
+        width: 60%; /* Adjust width as needed */
+        margin-right: 100px;
+      }
+
+      .contact-form label {
+        display: block;
+        color: #bcbcbc;
+        text-align: left;
+        margin-bottom: 5px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #bcbcbc;
+        border-radius: 4px;
+      }
+
+      .contact-form button {
+        padding: 10px 15px;
+        background-color: #bcbcbc;
+        color: #b22222;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .contact-form button:hover {
+        background-color: #444;
+      }
+
+      .contact1-info {
+        list-style-type: none;
+        padding: 0;
+        margin-left: 50px; /* Adjust as needed */
+        width: 45%; /* Adjust width as needed */
+      }
+
+      /* Breakpoint Styles (optional): You can add these later */
+      @media (max-width: 768px) {
+        /* Adjust styles for smaller screens here */
+      }
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .top-bar {
+          justify-content: space-between;
+        }
+
+        .header {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .logo {
+          margin: 10px 0;
+        }
+
+        .main-nav {
+          justify-content: center;
+          width: 100%;
+          margin-top: 10px;
+        }
+
+        .main-nav a {
+          margin: 5px 10px;
+        }
+        .contact2-container {
+          flex-direction: column; /* Stack items vertically on smaller screens */
+          align-items: center; /* Center items horizontally */
+          margin-top: 20px; /* Adjust margin for smaller screens */
+        }
+
+        .contact-form,
+        .contact1-info {
+          width: 100%; /* Make form and contact info take full width */
+          margin-right: 0; /* Reset right margin */
+          margin-left: 0; /* Reset left margin */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="contact-info">
+        <img
+          src="socicons/Phoneicon.png"
+          alt="LinkedIn"
+          width="25"
+          height="25"
+        />
+        <a href="tel:+639626629301">(+63) 962-662-9301</a>
+      </div>
+    </div>
+
+    <div class="header">
+      <div class="logo">
+        <img src="logo23jul.png" alt="logo" />
+      </div>
+      <div class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact1">Contact Me</a>
+      </div>
+    </div>
+
+    <div id="home" class="container pt-5">
+      <div class="col-md-6 order-md-2">
+        <h1 style="font-size: 56px">Hi, I'm Marc</h1>
+        <p style="margin-top: 20px; font-size: 125%; line-height: 1.6">
+          Experienced in video surveillance, IP networks, & enterprise Wi-Fi.
+          Emerging UX designer with project management expertise.
+        </p>
+        <div style="margin-top: 50px">
+          <a
+            href="Marc Regalado CV 2024.pdf"
+            download="my_resume.pdf"
+            class="custom-button"
+            target="_blank"
+            >View Resume</a
+          >
+        </div>
+      </div>
+      <div class="col-md-6 order-md-1">
+        <img
+          src="Hero3.png"
+          alt="Hero Image"
+          class="img-fluid"
+          style="opacity: 0.4"
+        />
+      </div>
+    </div>
+    <div id="about" class="section">
+      <h2>
+        <span style="color: #bcbcbc">About</span>
+        <span style="color: #b22222">Me</span>
+      </h2>
+      <p>
+        I am a Licensed Electronics Engineer with nearly 20 years of diverse
+        experience across telecommunications, fire protection systems, and
+        security technology. Currently, I lead the technical department at an
+        IT/Security company, where my expertise in Wireless Broadband Systems,
+        Enterprise Wi-Fi, Networking, Fiber Optics, PON, and Video Surveillance
+        enables me to manage teams effectively and ensure successful project
+        delivery from design through to handover. Beyond work, I am passionate
+        about outdoor adventures, whether on the beach or in the mountains, and
+        I love exploring new cultures as an avid traveler.
+      </p>
+      <div class="links">
+        <a href="educ.html" target="_blank">Education</a>
+        <a href="Skills/Skills.html" target="_blank">Skills</a>
+        <a href="Experience/Experience.html" target="_blank">Experience</a>
+      </div>
+    </div>
+    <!-- Corrected portfolio card section -->
+    <div id="portfolio" class="section">
+      <h2>Recent Projects</h2>
+      <div class="portfolio">
+        <a href="Pagadian/Pagadian.html" class="portfolio-card">
+          <img src="Thumbnails/Pagadian.png" alt="Project 1" />
+          <div class="caption">
+            Pagadian City Video Surveillance & Body Worn Camera Systems
+          </div>
+        </a>
+        <a href="Digos/Digos.html" class="portfolio-card">
+          <img src="Thumbnails/Digos.png" alt="Project 2" />
+          <div class="caption">Digos City Video Surveillance System</div>
+        </a>
+        <a href="Gentuna/Gentuna.html" class="portfolio-card">
+          <img src="Thumbnails/Gentuna.png" alt="Project 3" />
+          <div class="caption">Gen. Tuna Structured Cabling & PABX Systems</div>
+        </a>
+        <a href="Globe/Globe.html" class="portfolio-card">
+          <img src="Thumbnails/SCH.png" alt="Project 4" />
+          <div class="caption">
+            Socsargen County Hospital Enterprise WiFi & Structured Cabling
+            Systems
+          </div>
+        </a>
+        <a href="Cotelco/Cotelco.html" class="portfolio-card">
+          <img src="Thumbnails/Cotelco.png" alt="Project 5" />
+          <div class="caption">
+            Sultan Kudarat Electric Cooperative Wireless Bridging System
+          </div>
+        </a>
+        <a href="GCCS/GlobeConvertUX.html" class="portfolio-card">
+          <img src="Thumbnails/Globeconvert.png" alt="Project 6" />
+          <div class="caption">
+            Google UX Design Certificate Project Globe Convert Case Study
+          </div>
+        </a>
+        <a href="TLCS/TLCS.html" class="portfolio-card">
+          <img src="Thumbnails/tutorlink.png" alt="Project 7" />
+          <div class="caption">
+            Google UX Design Certificate Project Tutor Link Case Study
+          </div>
+        </a>
+      </div>
+    </div>
+    <div id="contact1" class="section">
+      <h2>Contact Me</h2>
+
+      <div class="contact2-container">
+        <!-- Contact Information -->
+        <ul class="contact1-info">
+          <li>
+            <img
+              class="icon"
+              src="socicons/Viber.png"
+              alt="Viber"
+              width="30"
+              height="30"
+            />
+            <a href="viber://chat?number=+639626629301">+63 962 662 9301</a>
+          </li>
+          <li>
+            <img
+              class="icon"
+              src="socicons/Whatsapp.png"
+              alt="WhatsApp"
+              width="30"
+              height="30"
+            />
+            <a href="https://wa.me/+639626629301">+63 962 662 9301</a>
+          </li>
+          <li>
+            <img
+              class="icon"
+              src="socicons/wechat.png"
+              alt="WeChat"
+              width="35"
+              height="35"
+            />
+            <a href="weixin://dl/chat?balot1785">balot1785</a>
+          </li>
+          <li>
+            <img
+              class="icon"
+              src="socicons/Gmail.png"
+              alt="Email"
+              width="30"
+              height="30"
+            />
+            <a href="mailto:balotece1785@gmail.com">balotece1785@gmail.com</a>
+          </li>
+        </ul>
+        <!-- Contact Form -->
+        <form
+          action="https://formspree.io/f/your-form-id"
+          method="POST"
+          class="contact-form"
+        >
+          <label for="email">Your Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="subject">Subject:</label>
+          <input type="text" id="subject" name="subject" required />
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      <div class="social-icons">
+        <a
+          href="https://www.linkedin.com/in/marc-erwin-regalado-0b6426104/"
+          target="_blank"
+        >
+          <img
+            src="socicons/pngegg.png"
+            alt="LinkedIn"
+            width="30"
+            height="30"
+          />
+        </a>
+        <a href="https://www.facebook.com/hp.tolab" target="_blank">
+          <img src="socicons/FB.png" alt="facebook" width="30" height="30" />
+        </a>
+        <a href="https://www.instagram.com/hpecetolab" target="_blank">
+          <img src="socicons/IG.png" alt="instagram" width="30" height="30" />
+        </a>
+        <a href="https://x.com/balot1785" target="_blank">
+          <img src="socicons/X.png" alt="x" width="30" height="30" />
+        </a>
+      </div>
+    </div>
+  </body>
+  <footer
+    style="
+      text-align: center;
+      padding: 5px 0;
+      background-color: #bcbcbc;
+      position: relative;
+      height: 30px;
+      line-height: 30px;
+      font-size: 12px;
+    "
+  >
+    <p style="margin: 0">
+      &copy; 2024 Marc Erwin Regalado. All rights reserved.
+    </p>
+    <button
+      onclick="window.scrollTo({top: 0, behavior: 'smooth'});"
+      style="
+        position: absolute;
+        right: 10px;
+        bottom: 5px;
+        padding: 5px 10px;
+        background-color: #383838;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+        font-size: 10px;
+        line-height: 1;
+      "
+    >
+      Back to Top
+    </button>
+  </footer>
+</html>

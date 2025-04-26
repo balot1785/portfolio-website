@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MRegalado Skills</title>
+    <style>
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        background-color: black;
+        color: #bcbcbc;
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+      }
+
+      .column {
+        border: 1px solid red;
+        padding: 20px;
+        height: auto;
+        flex: 1;
+        margin: 0 10px;
+        box-sizing: border-box;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        line-height: 1.75;
+      }
+
+      li {
+        margin-bottom: 10px;
+        line-height: 1.5;
+      }
+
+      .software-proficiency {
+        margin-top: 20px;
+        border: 1px solid #b22222;
+        padding: 20px;
+        width: 800px;
+        max-width: 100%; /* Ensure it does not exceed the viewport width */
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      .software-proficiency ul {
+        padding: 0;
+      }
+
+      .software-proficiency li {
+        margin-bottom: 20px;
+      }
+
+      .image-container {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Media Queries */
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .column {
+          width: 100%;
+          margin: 10px 0;
+        }
+
+        .software-proficiency {
+          width: 90%;
+        }
+      }
+
+      @media (max-width: 430px) {
+        .software-proficiency {
+          width: 95%;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        li {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 320px) {
+        h2 {
+          font-size: 1.2rem;
+        }
+
+        li {
+          font-size: 0.8rem;
+        }
+
+        .software-proficiency ul li {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .software-proficiency .image-container img {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="column">
+        <h2>Technical Skills</h2>
+        <ul>
+          <li>
+            <strong>Wireless Networking</strong>: Design, Configuration, and
+            Troubleshooting. (Expert)
+          </li>
+          <li>
+            <strong>Surveillance Systems</strong>: Installation, Configuration,
+            and Management. (Expert)
+          </li>
+          <li>
+            <strong>Network Management</strong>: Monitoring, Optimization, and
+            Security. (Experienced)
+          </li>
+          <li>
+            <strong>Project Management Tools</strong>: Smartsheet, Google
+            Workspace. (Experienced)
+          </li>
+          <li>
+            <strong>AI Tools</strong>: Google Gemini, Chat GPT, Perplexity.
+            (Experienced)
+          </li>
+          <li>
+            <strong>UX/UI Design</strong>: Wireframing, Prototyping, User Flows,
+            Information Architecture, Interaction Design. (Intermediate)
+          </li>
+          <li>
+            <strong>Research Skills</strong>: User Research, Usability Testing,
+            Surveys, Personas, Data Analysis. (Intermediate)
+          </li>
+          <li>
+            <strong>Coding Skills</strong>: CSS, JavaScript, Responsive Web
+            Design, Bootstrap, PHP, MySQL. (Beginner)
+          </li>
+        </ul>
+      </div>
+      <div class="column">
+        <h2>Soft Skills</h2>
+        <ul>
+          <li>
+            <strong>Leadership</strong>: Experienced leading teams and projects,
+            motivating team members, and making informed decisions.
+          </li>
+          <li>
+            <strong>Empathy for Others</strong>: Ability to understand and
+            relate to team members, stakeholders, clients, and users.
+          </li>
+          <li>
+            <strong>Strong Organizational Skills</strong>: Managing multiple
+            tasks and deadlines efficiently.
+          </li>
+          <li>
+            <strong>Attentive Listening Skills</strong>: Understanding members,
+            stakeholders, clients, and users for effective communication.
+          </li>
+          <li>
+            <strong>Adaptability</strong>: Quick to adapt to new challenges and
+            changes in project requirements.
+          </li>
+          <li>
+            <strong>Problem-Solving/Troubleshooting</strong>: Strong analytical
+            skills to identify and resolve issues effectively.
+          </li>
+          <li>
+            <strong>Attention to Detail</strong>: Meticulous approach to design
+            and project execution, ensuring high-quality outcomes.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="software-proficiency">
+      <h2>Software Proficiency</h2>
+      <ul>
+        <li>
+          <strong>Wireless Networking</strong>
+          <div class="image-container">
+            <img src="WL.png" alt="Wireless Networking" />
+          </div>
+        </li>
+        <li>
+          <strong>Surveillance System</strong>
+          <div class="image-container">
+            <img src="Surveillance.png" alt="Wireless Networking" />
+          </div>
+        </li>
+        <li>
+          <strong>Network Management</strong>
+          <div class="image-container">
+            <img src="Netman.png" alt="Wireless Networking" />
+          </div>
+        </li>
+        <li>
+          <strong>Design and Modeling</strong>
+          <div class="image-container">
+            <img src="DM.png" alt="Wireless Networking" />
+          </div>
+        </li>
+        <li>
+          <strong>Other Tools</strong>
+          <div class="image-container">
+            <img src="Others.png" alt="Wireless Networking" />
+          </div>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>

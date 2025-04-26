@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2016 Certificates</title>
+    <style>
+      /* Base styles for larger screens */
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        background-color: black;
+        color: #bcbcbc;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 100%;
+        margin: 10px auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 24px; /* Adjust font size as needed */
+      }
+
+      .project-photos {
+        max-width: 100%;
+        border: 1px solid #b22222;
+        padding: 10px;
+        box-sizing: border-box; /* Include padding and border in the width */
+        overflow-x: auto; /* Allow horizontal scrolling if needed */
+      }
+      .project-photo-row img {
+        pointer-events: none; /* Disable all pointer interactions */
+      }
+
+      /* Update project-photo-row for larger screens (2x2 layout) */
+      @media screen and (min-width: 1024px) {
+        .project-photo-row {
+          display: grid; /* Use grid layout */
+          grid-template-columns: repeat(2, 1fr); /* 2 columns */
+          gap: 10px; /* Space between images */
+          margin-bottom: 10px;
+          justify-content: center; /* Center grid items horizontally */
+          align-items: center; /* Center grid items vertically */
+        }
+
+        .project-photo-row img {
+          width: 100%; /* Ensure images take full width of grid cell */
+          height: auto; /* Maintain aspect ratio */
+          object-fit: cover; /* Ensure images cover the grid cell */
+        }
+      }
+
+      /* Responsive styles */
+
+      /* For screens up to 1024px */
+      @media screen and (max-width: 1024px) {
+        h1 {
+          font-size: 22px;
+        }
+        .project-photo-row {
+          flex-direction: column; /* Stack images vertically */
+          align-items: center;
+        }
+        .project-photo-row img {
+          width: 90%; /* Reduce image size */
+          max-width: 500px; /* Set a max width */
+          height: auto;
+        }
+      }
+
+      /* For screens up to 768px */
+      @media screen and (max-width: 768px) {
+        h1 {
+          font-size: 20px;
+        }
+        .project-photo-row img {
+          width: 100%; /* Allow images to take full width of the container */
+          max-width: 450px; /* Reduce max width */
+          height: auto;
+        }
+      }
+
+      /* For screens up to 430px */
+      @media screen and (max-width: 430px) {
+        h1 {
+          font-size: 18px;
+        }
+        .project-photo-row img {
+          width: 100%;
+          max-width: 350px; /* Further reduce max width */
+          height: auto;
+        }
+      }
+
+      /* For screens up to 320px */
+      @media screen and (max-width: 320px) {
+        h1 {
+          font-size: 16px;
+        }
+        .project-photo-row img {
+          width: 100%;
+          max-width: 280px; /* Final reduction for very small screens */
+          height: auto;
+        }
+      }
+
+      /* Landscape mode adjustments for larger tablets (e.g., iPad Pro) */
+      @media screen and (min-width: 1025px) and (orientation: landscape) {
+        .project-photo-row {
+          display: grid; /* Use grid layout */
+          grid-template-columns: repeat(2, 1fr); /* 2 columns */
+          gap: 10px; /* Space between images */
+          overflow-x: auto; /* Allow horizontal scrolling if needed */
+          justify-content: center; /* Center grid items horizontally */
+          align-items: center; /* Center grid items vertically */
+        }
+        .project-photo-row img {
+          max-width: 100%; /* Ensure images fit within the container */
+          height: auto;
+          object-fit: cover; /* Ensure images fit within their container */
+        }
+      }
+
+      /* Landscape mode adjustments for smaller tablets (e.g., iPad Mini) */
+      @media screen and (max-width: 1024px) and (orientation: landscape) {
+        .project-photo-row {
+          flex-direction: row; /* Ensure images are in a row */
+          flex-wrap: nowrap; /* Prevent wrapping to keep images in a single line */
+          overflow-x: auto; /* Allow horizontal scrolling if needed */
+          padding: 0 10px; /* Add horizontal padding to prevent clipping */
+          justify-content: center; /* Center images horizontally */
+          align-items: center;
+          margin-left: 40px;
+        }
+        .project-photo-row img {
+          max-width: 100%; /* Ensure images fit within the container */
+          height: auto;
+          object-fit: contain; /* Ensure images fit within their container */
+        }
+      }
+      /* Portrait mode adjustments for iPad Mini */
+      @media screen and (max-width: 1024px) and (orientation: portrait) {
+        .project-photo-row {
+          display: flex; /* Ensure flex layout */
+          flex-wrap: wrap; /* Allow wrapping */
+          justify-content: center; /* Center images horizontally */
+          align-items: center; /* Center images vertically */
+          gap: 10px; /* Space between images */
+          padding: 10px; /* Ensure there is padding around the images */
+        }
+
+        .project-photo-row img {
+          max-width: 100%; /* Ensure images fit within the container */
+          height: auto; /* Maintain aspect ratio */
+          object-fit: contain; /* Ensure images fit within their container */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>2024 Certificates</h1>
+    </div>
+
+    <div class="project-photos">
+      <div class="project-photo-row">
+        <img
+          src="Google PM.jpg"
+          alt="Project Photo 1"
+          class="img-fluid"
+          draggable="false"
+        />
+        <img
+          src="Google UX.jpg"
+          alt="Project Photo 2"
+          class="img-fluid"
+          draggable="false"
+        />
+        <img
+          src="Google AI Essentials.jpg"
+          alt="Project Photo 1"
+          class="img-fluid"
+          draggable="false"
+        />
+      </div>
+    </div>
+  </body>
+</html>
