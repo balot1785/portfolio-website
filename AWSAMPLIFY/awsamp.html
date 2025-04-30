@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project Deployment Workflow using GitHub and AWS Amplify</title>
+    <style>
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        background-color: black;
+        color: #bcbcbc;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 1200px; /* Increased the max-width to utilize more space */
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+        font-size: 24px; /* Adjust font size as needed */
+      }
+      .h3,
+      .project-summary {
+        text-align: center;
+        font-size: 22px; /* Uniform font size */
+        margin: 20px 0; /* Add margin for spacing */
+        line-height: 1.75; /* Adjust line-height for better readability */
+      }
+
+      .project-details {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0; /* Add margin for spacing */
+      }
+
+      .project-deliverables,
+      .project-scope {
+        width: 596px; /* Ensure the elements take up more width */
+        padding: 20px;
+        border: 1px solid #b22222;
+        box-sizing: border-box; /* Include padding and border in the element's width */
+        font-size: 18px; /* Uniform font size */
+        line-height: 1.5;
+      }
+
+      .project-deliverables h3 {
+        margin-bottom: 62px; /* Adjust this value as needed */
+      }
+
+      .project-deliverables ul li,
+      .project-scope ul li,
+      .project-role li {
+        margin-bottom: 15px; /* Adjust the space as needed */
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 18px; /* Base font size for h3 */
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .project-photos-heading {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .project-photos {
+        border: 1px solid #b22222;
+        padding: 10px;
+        overflow: hidden; /* Prevent content from overflowing the border */
+      }
+
+      .project-photo-container {
+        display: flex;
+        gap: 10px;
+        justify-content: center; /* Center images horizontally */
+        flex-wrap: wrap; /* Allow images to wrap if there's not enough space */
+        max-width: 100%; /* Ensure the container doesn’t overflow */
+      }
+
+      .project-photo {
+        width: calc(
+          (100% - 30px) / 4
+        ); /* Adjust width to fit 4 images in one row */
+        max-height: auto;
+        object-fit: cover;
+      }
+
+      .project-role {
+        margin: 20px 0; /* Add margin for spacing */
+        padding: 20px;
+        border: 1px solid #b22222;
+        font-size: 18px; /* Uniform font size */
+      }
+
+      .project-role h3 h4 {
+        margin-bottom: 10px;
+        font-size: 18px; /* Base font size for h3 */
+      }
+
+      /* Breakpoints for Responsive Design */
+      @media screen and (max-width: 768px) {
+        body,
+        h1,
+        h2 {
+          font-size: 22px;
+        }
+        .h3,
+        .project-summary {
+          font-size: 20px;
+        }
+        .project-deliverables,
+        .project-scope,
+        .project-role {
+          padding: 16px;
+          font-size: 18px; /* Uniform font size */
+          line-height: 1.3;
+        }
+        .project-deliverables h3 {
+          margin-bottom: 54px; /* Adjust this value as needed */
+        }
+
+        .project-details {
+          flex-direction: column; /* Stack sections vertically */
+        }
+
+        .project-deliverables,
+        .project-scope {
+          width: 100%; /* Full width on smaller screens */
+          margin-bottom: 20px; /* Add margin for spacing */
+        }
+
+        .project-photo-container {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center; /* Ensure items are centered */
+        }
+
+        .project-photo {
+          width: calc(50% - 10px); /* Two photos per row with a 10px gap */
+          max-height: 200px;
+          margin-bottom: 10px; /* Add bottom margin to create space between rows */
+          object-fit: cover;
+        }
+      }
+
+      @media screen and (max-width: 430px) {
+        body,
+        h1,
+        h2 {
+          font-size: 18px;
+        }
+        .h3,
+        .project-summary {
+          font-size: 16px;
+        }
+        .project-deliverables,
+        .project-scope,
+        .project-role {
+          padding: 12px;
+          font-size: 14px; /* Uniform font size */
+          line-height: 0.9;
+        }
+        .project-deliverables h3 {
+          margin-bottom: 24px; /* Adjust this value as needed */
+        }
+
+        .project-photo-container {
+          display: flex;
+          flex-direction: column; /* Stack photos vertically */
+          align-items: center; /* Center photos horizontally if needed */
+        }
+
+        .project-photo {
+          width: 100%; /* Ensure each photo takes full width */
+          max-height: 200px;
+          margin-bottom: 10px; /* Add space between photos */
+          object-fit: cover;
+        }
+      }
+
+      @media screen and (max-width: 320px) {
+        body,
+        h1,
+        h2 {
+          font-size: 16px;
+        }
+        .h3,
+        .project-summary {
+          font-size: 14px;
+        }
+        .project-deliverables,
+        .project-scope,
+        .project-role {
+          padding: 10px;
+          font-size: 12px; /* Uniform font size */
+          line-height: 0.7;
+        }
+        .project-deliverables h3 {
+          margin-bottom: 24px; /* Adjust this value as needed */
+        }
+        .project-photo-container {
+          display: flex;
+          flex-direction: column; /* Stack photos vertically */
+          align-items: center; /* Center photos horizontally if needed */
+        }
+
+        .project-photo {
+          width: 100%; /* Ensure each photo takes full width */
+          max-height: 150px;
+          margin-bottom: 10px; /* Add space between photos */
+          object-fit: cover;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Project Deployment Workflow using GitHub and AWS Amplify</h1>
+      <h2>Apr. 2025</h2>
+
+      <!-- Project Summary Section -->
+      <div class="project-summary">
+        <p>
+          This section outlines the deployment process of my personal portfolio
+          website utilizing GitHub for version control and AWS Amplify for
+          hosting, ensuring a streamlined and professional workflow.
+        </p>
+      </div>
+
+      <div class="project-details">
+        <div class="project-deliverables">
+          <h3>Objectives</h3>
+          <ul>
+            <li>Host the portfolio website on a reliable cloud platform.</li>
+            <li>
+              Implement GitHub for efficient version control and collaboration.
+            </li>
+            <li>Automate deployments through Git-based triggers.</li>
+            <li>
+              Gain practical experience with Git and AWS Amplify integration.
+            </li>
+          </ul>
+          <h3>Tools & Technologies</h3>
+          <ul>
+            <li>Git: Version control system</li>
+            <li>GitHub: Repository hosting and code management</li>
+            <li>
+              AWS Amplify: Cloud-based web hosting and continuous deployment
+            </li>
+            <li>
+              HTML, CSS, JavaScript: Core technologies for the portfolio website
+            </li>
+          </ul>
+        </div>
+        <div class="project-scope">
+          <h3>Deployment and workflow</h3>
+          <ul>
+            <li>
+              Local Project Setup: Developed the portfolio using HTML, CSS, and
+              JavaScript, organizing files into structured directories (e.g.,
+              /images, /css, /js).
+            </li>
+            <li>
+              Initialize Git Repository: git init git add . git commit -m
+              "Initial commit of portfolio website"
+            </li>
+            <li>
+              Push to GitHub: Created a new repository on GitHub and connected
+              the local repository: git remote add origin
+              https://github.com/username/portfolio-website.git git push -u
+              origin main
+            </li>
+            <li>
+              Set Up AWS Amplify Hosting: Logged into AWS Console, navigated to
+              Amplify, and initiated the hosting setup by connecting the GitHub
+              repository and selecting the main branch.
+            </li>
+            <li>
+              Choose Repository and Branch: Selected the GitHub repo and target
+              branch (main) for deployment.
+            </li>
+            <li>
+              Build Settings and Deployment: Reviewed the auto-generated build
+              settings and deployed the project.
+            </li>
+            <li>
+              Configuration: Configuration of the PABX system to support various
+              communication features.
+            </li>
+            <li>
+              Monitor Deployment Status: Deployment completed successfully, and
+              Amplify hosted the site live.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-photos">
+        <h2 class="project-photos-heading">Project Photos</h2>
+        <div class="project-photo-container">
+          <img src="1.png" alt="Project Photo 1" class="project-photo" />
+          <img src="2.png" alt="Project Photo 2" class="project-photo" />
+          <img src="3.png" alt="Project Photo 3" class="project-photo" />
+          <img src="4.png" alt="Project Photo 4" class="project-photo" />
+          <img src="5.png" alt="Project Photo 1" class="project-photo" />
+          <img src="6.png" alt="Project Photo 2" class="project-photo" />
+          <img src="7.png" alt="Project Photo 3" class="project-photo" />
+          <img src="9.png" alt="Project Photo 4" class="project-photo" />
+        </div>
+      </div>
+
+      <div class="project-role">
+        <h3>Key Learnings</h3>
+        <ul>
+          <h4>
+            Git is essential for structured and maintainable code management in
+            web development.
+          </h4>
+        </ul>
+        <ul>
+          <h4>
+            AWS Amplify simplifies hosting and supports professional-grade CI/CD
+            workflows.
+          </h4>
+        </ul>
+        <ul>
+          <h4>
+            Integrating cloud services like Amplify with GitHub enhances
+            productivity and reliability.
+          </h4>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
